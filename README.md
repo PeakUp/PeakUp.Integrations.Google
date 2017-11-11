@@ -1,4 +1,4 @@
-# Peakup.Integrations.Google
+# Peakup.Integrations.Google | C# SDK
 Integration helper for google api's.
 
 ## Initializing GoogleService
@@ -13,7 +13,7 @@ private GoogleService googleService = new GoogleService(new Credentials()
         });
 ```
 
-**All fields are requied!**
+**All fields are required!**
 
 ## Authentication
 
@@ -39,7 +39,7 @@ var outh2Url = googleService.GetOuth2Url(new Outh2RequestBody()
                 AccessType = AccessType.Offline,
                 IncludeGrantedScopes = true,
                 ResponseType = ResponseType.Code,
-                State = "UserId",
+                State = "ANY_STRING_VALUE",
                 Scopes = scopes
 
             })
