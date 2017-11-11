@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6B59451C-BF78-411F-B4BB-F04C9CC08F17}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>PeakUp.Integrations.Google</RootNamespace>
+    <AssemblyName>PeakUp.Integrations.Google</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PeakUp.Integrations.Core, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PeakUp.Integrations.Core.0.1.0\lib\net452\PeakUp.Integrations.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Enums\AccessType.cs" />
+    <Compile Include="Enums\Api.cs" />
+    <Compile Include="Enums\AveragePeriod.cs" />
+    <Compile Include="Enums\DataType.cs" />
+    <Compile Include="Enums\Dimension.cs" />
+    <Compile Include="Enums\Filter.cs" />
+    <Compile Include="Enums\GrantType.cs" />
+    <Compile Include="Enums\ContentKind.cs" />
+    <Compile Include="Enums\Metric.cs" />
+    <Compile Include="Enums\Part.cs" />
+    <Compile Include="Enums\ResponseType.cs" />
+    <Compile Include="Enums\Scope.cs" />
+    <Compile Include="Enums\ScopeType.cs" />
+    <Compile Include="Extensions\AnalyticsExtensions.cs" />
+    <Compile Include="Extensions\GenericExtensions.cs" />
+    <Compile Include="Extensions\VideoExtensions.cs" />
+    <Compile Include="Helpers\RequestUri.cs" />
+    <Compile Include="Helpers\ScopeParser.cs" />
+    <Compile Include="Helpers\TypeConverter.cs" />
+    <Compile Include="Models\AnalyticsApiResponse.cs" />
+    <Compile Include="Models\PlaylistItem.cs" />
+    <Compile Include="Models\ViewStatistic.cs">
+      <DependentUpon>AnalyticsApiResponse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Column.cs">
+      <DependentUpon>AnalyticsApiResponse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\StatisticValue.cs">
+      <DependentUpon>AnalyticsApiResponse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AudienceStatistic.cs">
+      <DependentUpon>AnalyticsApiResponse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AnalyticsRequestBody.cs" />
+    <Compile Include="Models\AnalyticsRequestBody.base.cs">
+      <DependentUpon>AnalyticsRequestBody.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Channel.cs" />
+    <Compile Include="Models\ChannelContentDetail.cs">
+      <DependentUpon>Channel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\RelatedPlaylist.cs">
+      <DependentUpon>ChannelContentDetail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Channel.base.cs">
+      <DependentUpon>Channel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChannelDetail.cs">
+      <DependentUpon>Channel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChannelStatistic.cs">
+      <DependentUpon>Channel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ChannelStatistic.base.cs">
+      <DependentUpon>ChannelStatistic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Credentials.cs" />
+    <Compile Include="Models\Credentials.base.cs">
+      <DependentUpon>Credentials.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GoogleApiResponse.cs" />
+    <Compile Include="Models\GoogleApiResponse.base.cs">
+      <DependentUpon>GoogleApiResponse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Image.cs">
+      <DependentUpon>Thumbnail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Page.cs">
+      <DependentUpon>GoogleApiResponse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Outh2RequestBody.cs" />
+    <Compile Include="Models\Outh2RequestBody.base.cs">
+      <DependentUpon>Outh2RequestBody.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Profile.cs" />
+    <Compile Include="Models\Email.cs">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Email.base.cs">
+      <DependentUpon>Email.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Profile.base.cs">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Place.cs">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ProfileImage.cs">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Name.cs">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TokenInformation.cs">
+      <DependentUpon>Token.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TokenInformation.base.cs">
+      <DependentUpon>TokenInformation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Url.cs">
+      <DependentUpon>Profile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Token.cs" />
+    <Compile Include="Models\Token.base.cs">
+      <DependentUpon>Token.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Video.cs" />
+    <Compile Include="Models\Video.base.cs">
+      <DependentUpon>Video.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VideoStatus.cs">
+      <DependentUpon>Video.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VideoDetail.cs">
+      <DependentUpon>Video.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VideoIdentifier.cs">
+      <DependentUpon>Video.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VideoStatistic.cs">
+      <DependentUpon>Video.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VideoStatistic.base.cs">
+      <DependentUpon>VideoStatistic.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\GoogleService.cs" />
+    <Compile Include="Models\Thumbnail.cs">
+      <DependentUpon>ChannelDetail.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
