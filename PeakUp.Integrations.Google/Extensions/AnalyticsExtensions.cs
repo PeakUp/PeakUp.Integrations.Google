@@ -82,7 +82,7 @@ namespace PeakUp.Integrations.Google.Extensions
                 if (equalsDimensions != null && equalsDimensions.Count() > 0)
                 {
 
-                    foreach (var row in response.Rows)
+                    foreach (var row in response?.Rows ?? new List<List<object>>())
                     {
 
                         var statistic = new T();
