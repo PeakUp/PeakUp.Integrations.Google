@@ -1,6 +1,24 @@
 # Peakup.Integrations.Google | C# SDK
 Integration helper for google api's.
 
+## Installation
+
+#### Package Manager Console
+```
+Install-Package PeakUp.Integrations.Google -Version 0.1.5 
+```
+
+#### .NET CLI
+```
+dotnet add package PeakUp.Integrations.Google --version 0.1.5 
+```
+
+#### Paket CLI
+```
+paket add PeakUp.Integrations.Google --version 0.1.5
+```
+
+
 ## Initializing GoogleService
 
 ```
